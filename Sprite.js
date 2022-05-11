@@ -43,7 +43,7 @@ class Sprite {
   }
 
   get frame() {
-    return this.animations[this.currentAnimation][this.currentAnimationFrame];
+    return this.animations[this.currentAnimation][this.currentAnimationFrame]
   }
 
   setAnimation(key) {
@@ -69,9 +69,9 @@ class Sprite {
     }
   }
 
-  draw(ctx) {
-    const x = this.gameObject.x;
-    const y = this.gameObject.y -8;
+  draw(ctx, cameraPerson) {
+    const x = this.gameObject.x + utils.withGrid(7) - cameraPerson.x;
+    const y = this.gameObject.y - 8 + utils.withGrid(4.5) - cameraPerson.y;
 
     this.isShadowLoaded && ctx.drawImage(this.shadow, (x-8), (y-9))
 

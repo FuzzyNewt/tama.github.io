@@ -5,10 +5,9 @@
 * { box-sizing: border-box;}
 
 /* === Structure === */
-body { display: flex; align-items: center; height: 100vh; background: #333; overflow: hidden; }
+body { display: flex; align-items: center; height: 100vh; background: #c3c3c3; overflow: hidden; }
 
-.game-container { position: relative; width: 240px; height: 160px; outline: 1px solid #fff; margin: 0 auto; transform: scale(3); }
-
+.game-container { background: #000; position: relative; width: 240px; height: 160px; outline: 1px solid #000; margin: 0 auto; transform: scale(3); }
 .game-container canvas {
   image-rendering: pixelated;
 }
