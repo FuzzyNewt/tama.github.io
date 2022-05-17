@@ -8,6 +8,9 @@ class OverworldMap {
 
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
+
+    this.isCutscenePlaying = false;
+
   }
 
   drawLowerImage(ctx, cameraPerson) {
@@ -32,10 +35,32 @@ class OverworldMap {
   }
 
   mountObjects() {
-    Object.values(this.gameObjects).forEach(o => {
+    Object.keys(this.gameObjects).forEach(key => {
+
+      let object = this.gameObjects[key];
+      object.id = key;
+
       //TODO: determine if this object should actually mount
-      o.mount(this);
+      object.mount(this);
     })
+  }
+
+  async startCutscene(events) {
+    this.isCutscenePlaying = true;
+
+    for (let i=0; i<events.length; i++) {
+      const eventHandler = new OverworldEvent({
+        event: events[i],
+        map: this,
+      })
+      await eventHandler.init();
+    }
+
+    this.isCutscenePlaying = false;
+
+    // Return to Object Behaviors
+    Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
+
   }
 
   addWall(x,y) {
@@ -50,15 +75,6 @@ class OverworldMap {
     this.addWall(x,y);
   }
 
-  mountObjects() {
-    Object.values(this.gameObjects).forEach(o => {
-
-      // TODO: Determine if object should mount
-
-      o.mount(this);
-    })
-  }
-
 }
 
 window.OverworldMaps = {
@@ -68,13 +84,34 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(5),
+        x: utils.withGrid(4),
         y: utils.withGrid(6),
       }),
-      npc1: new Person({
-        x: utils.withGrid(7),
+      npcA: new Person({
+        x: utils.withGrid(6),
         y: utils.withGrid(9),
-        src: "images/characters/people/npc1.png"
+        src: "images/characters/people/npc1.png",
+        behaviorLoop: [
+          { type: "stand", direction: "left", time: 1600 },
+          { type: "stand", direction: "up", time: 2400 },
+          { type: "stand", direction: "right", time: 3200 },
+          { type: "stand", direction: "down", time: 4000 },
+        ]
+      }),
+      npcB: new Person({
+        x: utils.withGrid(9),
+        y: utils.withGrid(7),
+        src: "images/characters/people/oak.png",
+        behaviorLoop: [
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "left" },
+          { type: "stand", direction: "down", time: 800 },
+          { type: "stand", direction: "right", time: 1400 },
+          { type: "stand", direction: "up", time: 2000 },
+          { type: "stand", direction: "left", time: 2600 },
+        ]
       })
     },
     walls: {
