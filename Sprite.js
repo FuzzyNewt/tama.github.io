@@ -1,17 +1,16 @@
 class Sprite {
   constructor(config) {
 
-    // Set up the images
+    //Set up the image
     this.image = new Image();
     this.image.src = config.src;
     this.image.onload = () => {
       this.isLoaded = true;
-
     }
 
-    // Shadow
+    //Shadow
     this.shadow = new Image();
-    this.useShadow = true; // config.useShadow
+    this.useShadow = true; //config.useShadow || false
     if (this.useShadow) {
       this.shadow.src = "images/characters/shadow.png";
     }
@@ -19,8 +18,7 @@ class Sprite {
       this.isShadowLoaded = true;
     }
 
-
-    // Configure animations and initial state
+    //Configure Animation & Initial State
     this.animations = config.animations || {
       "idle-up"   : [ [9,0] ],
       "idle-down" : [ [0,0] ],
@@ -30,15 +28,15 @@ class Sprite {
       "walk-down" : [ [1,0],[0,0],[2,0],[0,0] ],
       "walk-left" : [ [7,0],[6,0],[8,0],[6,0] ],
       "walk-right": [ [4,0],[3,0],[5,0],[3,0] ],
-      // ]
     }
-    this.currentAnimation = "idle-down"; // config.currentAnimation || "idle-down";
+    this.currentAnimation = config.currentAnimation || "idle-down";
     this.currentAnimationFrame = 0;
 
     this.animationFrameLimit = config.animationFrameLimit || 8;
     this.animationFrameProgress = this.animationFrameLimit;
 
-    // Regerence the GameObject
+
+    //Reference the game object
     this.gameObject = config.gameObject;
   }
 
@@ -55,19 +53,23 @@ class Sprite {
   }
 
   updateAnimationProgress() {
-    // DownTick Frame Progress
+    //Downtick frame progress
     if (this.animationFrameProgress > 0) {
       this.animationFrameProgress -= 1;
       return;
     }
-    // Reset Counter
+
+    //Reset the counter
     this.animationFrameProgress = this.animationFrameLimit;
     this.currentAnimationFrame += 1;
 
     if (this.frame === undefined) {
-      this.currentAnimationFrame = 0;
+      this.currentAnimationFrame = 0
     }
+
+
   }
+
 
   draw(ctx, cameraPerson) {
     const x = this.gameObject.x + utils.withGrid(7) - cameraPerson.x;

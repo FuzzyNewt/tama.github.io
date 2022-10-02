@@ -1,0 +1,77 @@
+.TextMessage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 36px;
+  /* padding: 4px; */
+}
+
+.TextMessage__portrait {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  width: 80px;
+  height: 80px;
+  background-size: 80px 80px;
+}
+.TextMessage__portrait--pc { background-image: url('../images/portraits/pc.png'); }
+.TextMessage__portrait--pc-battle { background-image: url('../images/portraits/pc--battle.png'); }
+
+.TextMessage_p {
+  margin: 0;
+  font-size: 7px;
+  line-height: 10px;
+}
+.TextMessage span {
+  opacity: 0;
+}
+.TextMessage span.revealed {
+  opacity: 1;
+}
+
+.TextMessage_button {
+  margin: 0;
+  font-size: 8px;
+  padding:0;
+  -webkit-appearance: none;
+  background:none;
+  border:0;
+  font-family: inherit;
+  cursor: pointer;
+
+  position: absolute;
+  right: 2px;
+  bottom: 0;
+}
+
+
+
+
+
+
+/* === TEXT MESSAGE === */
+.TextMessage { width: 208px; height: 32px; position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+
+
+}
+.TextMessage__dialog { display: block; width: 100%; height: 100%; padding: 0;
+
+  /* background: transparent; */
+  background: #fff; color: #333;
+
+  border-image-slice: 8 8 8 8; border-image-width: 8px 8px 8px 8px; border-image-outset: 8px 8px 8px 8px; border-width: thin; border-style: solid;
+  /* border-image-repeat: stretch stretch; */
+  border-image-repeat: repeat repeat;
+  border-image-source:url('../images/ui/dialog-border--default.png');
+
+  /* === Pixelated === */
+  image-rendering: pixelated;
+}
+/*
+.TextMessage_dialog { display: block; position: relative; font-size: 0; line-height: 10px; border: 0; margin: 0; padding: 0; }
+.TextMessage_dialog span { opacity: 0; font-size: 7px; }
+.TextMessage_dialog span.revealed { opacity: 1; }
+*/
+.TextMessage_button { -webkit-appearance: none; appearance: none; border: 0; background: none; font-family: "PressStart2P"; font-size: 5px; cursor: pointer; position: absolute; right: 0px; bottom: 0px; margin: 0; padding: 0; }

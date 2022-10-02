@@ -1,19 +1,17 @@
 class DirectionInput {
-
   constructor() {
     this.heldDirections = [];
 
     this.map = {
       "ArrowUp": "up",
-      "ArrowDown": "down",
-      "ArrowLeft": "left",
-      "ArrowRight": "right",
       "KeyW": "up",
+      "ArrowDown": "down",
       "KeyS": "down",
+      "ArrowLeft": "left",
       "KeyA": "left",
+      "ArrowRight": "right",
       "KeyD": "right",
     }
-
   }
 
   get direction() {
@@ -22,11 +20,9 @@ class DirectionInput {
 
   init() {
     document.addEventListener("keydown", e => {
-      console.log(e.code);
       const dir = this.map[e.code];
       if (dir && this.heldDirections.indexOf(dir) === -1) {
         this.heldDirections.unshift(dir);
-        console.log(this.heldDirections)
       }
     });
     document.addEventListener("keyup", e => {
@@ -34,9 +30,9 @@ class DirectionInput {
       const index = this.heldDirections.indexOf(dir);
       if (index > -1) {
         this.heldDirections.splice(index, 1);
-        console.log(this.heldDirections)
       }
     })
+
   }
 
 }
