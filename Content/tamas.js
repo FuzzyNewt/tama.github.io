@@ -18,7 +18,7 @@ window.Tamas = {
   },
   "t002": {
     name: "Hitama",
-    description: "Fire Tama: Body / Soul",
+    description: "Fire Tama: Body / Spirit",
     type: TamaTypes.fire,
     //src: "",
     sprite_front: "images/characters/tamas/t002_f_n.png",
@@ -28,7 +28,7 @@ window.Tamas = {
   },
   "t003": {
     name: "Mitama",
-    description: "Water Tama: Mind / Soul",
+    description: "Water Tama: Mind / Spirit",
     type: TamaTypes.water,
     //src: "",
     //sprite_front: "images/characters/tamas/t003_f_n.png",

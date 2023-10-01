@@ -21,7 +21,7 @@ class Combatant {
   }
 
   get givesXp() {
-    return this.level * 20;
+    return this.level * 3; // TODO: This is probably a very bad xp formula and may result in the scale being too hard to ever level up to level 100. Check back in on this. I wing-ed it...
   }
 
   createElement() {
@@ -40,7 +40,7 @@ class Combatant {
         <rect x=0 y=0 width="0%" height=1 fill="#82ff71" />
         <rect x=0 y=1 width="0%" height=2 fill="#3ef126" />
       </svg>
-      <svg viewBox="0 0 192 2" class="Combatant_xp-container">
+      <svg viewBox="0 0 64 2" class="Combatant_xp-container">
         <rect x=0 y=0 width="0%" height=1 fill="#40c8f8" />
         <rect x=0 y=1 width="0%" height=1 fill="#40c8f8" />
       </svg>
@@ -79,7 +79,7 @@ class Combatant {
     this.xpFills.forEach(rect => rect.style.width = `${this.xpPercent}%`)
 
     //Update level on screen
-    this.hudElement.querySelector(".Combatant_level").innerText = this.level;
+    this.hudElement.querySelector(".Combatant_level").innerText = 'Lv '+this.level;
 
     //Update status
     const statusElement = this.hudElement.querySelector(".Combatant_status");

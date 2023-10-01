@@ -37,16 +37,7 @@ window.Actions = {
     ]
   },
   //Items
-  item_recoverStatus: {
-    name: "Heating Lamp",
-    description: "Feeling fresh and warm",
-    targetType: "friendly",
-    success: [
-      { type: "textMessage", text: "{CASTER} uses a {ACTION}!"},
-      { type: "stateChange", status: null },
-      { type: "textMessage", text: "Feeling fresh!", },
-    ]
-  },
+
   item_recoverHp: {
     name: "Potion",
     targetType: "friendly",
@@ -56,4 +47,25 @@ window.Actions = {
       { type:"textMessage", text: "{CASTER} recovers HP!", },
     ]
   },
+  item_recoverHp: {
+    name: "Super Potion",
+    targetType: "friendly",
+    success: [
+      { type:"textMessage", text: "{CASTER} drinks a {ACTION}!", },
+      { type:"stateChange", recover: 30, },
+      { type:"textMessage", text: "{CASTER} recovers HP!", },
+    ]
+  },
+  item_recoverStatus: {
+    name: "Antidote",
+    description: "Removes a status effect ",
+    targetType: "friendly",
+    success: [
+      { type: "textMessage", text: "{CASTER} uses an {ACTION}!"},
+      { type: "stateChange", status: null },
+      { type: "textMessage", text: "Status Effects Removed", },
+    ]
+  },
+
+
 }

@@ -6,8 +6,8 @@ class PlayerState {
         hp: 75,
         maxHp: 75,
         xp: 0,
-        maxXp: 100,
         level: 1,
+        maxXp: 1 ** 3, // Level^3
         status: null,
       },
       // "p2": {

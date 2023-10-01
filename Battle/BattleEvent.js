@@ -3,7 +3,7 @@ class BattleEvent {
     this.event = event;
     this.battle = battle;
   }
-  
+
   textMessage(resolve) {
 
     const text = this.event.text
@@ -29,7 +29,7 @@ class BattleEvent {
       target.update({
         hp: target.hp - damage
       })
-      
+
       //start blinking
       target.tamaElement.classList.add("battle-damage-blink");
     }
@@ -129,8 +129,8 @@ class BattleEvent {
         //Check if we've hit level up point
         if (combatant.xp === combatant.maxXp) {
           combatant.xp = 0;
-          combatant.maxXp = 100;
           combatant.level += 1;
+          combatant.maxXp = combatant.level ** 3; // Gen 1, Gen 3: Medium Fast, https://bulbapedia.bulbagarden.net/wiki/Experience#Medium_Fast
         }
 
         combatant.update();

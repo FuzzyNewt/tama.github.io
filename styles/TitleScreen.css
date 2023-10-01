@@ -22,16 +22,15 @@
   border: 0;
 }
 .TitleScreen button {
-  color: #000;
+  color: #FFF;
   justify-content: center;
   padding:0;
-  background: #FF0;
   font-size: 7px;
   height: 16px;
 }
+.TitleScreen button:before { display: none; content: none; }
 .TitleScreen button:hover, .TitleScreen button:focus, .TitleScreen button:active {
-  background: #FF0;
-  box-shadow: 0 0 8px #FF0;
+  box-shadow: 0 0 8px #FFF;
 }
 
 .TitleScreen .DescriptionBox {

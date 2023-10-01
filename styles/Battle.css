@@ -1,5 +1,5 @@
 .Battle {
-  position: absolute; top: 0; left: 0; width: 240px; height: 112px;
+  position: absolute; top: 0; left: 0; width: 240px; height: 160px;
   background-image: url(../images/maps/battle--town.png); background-size: cover; image-rendering: pixelated;
 }
 .Battle.battle--forest { background-image: url(../images/maps/battle--forest.png); }
@@ -7,12 +7,12 @@
 .Battle.battle--water { background-image: url(../images/maps/battle--water.png); }
 .Battle.battle--city { background-image: url(../images/maps/battle--city.png); }
 
-.Battle .TextMessage { bottom: auto; top: 100%; }
+.Battle .TextMessage { /*bottom: auto; top: 100%;*/ }
 
 .Battle .KeyboardMenu {
   display: flex; flex-wrap: wrap;
 
-  width: 208px; height: 32px; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  width: 208px; height: 32px; position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
   padding: 0;
 
     /* background: transparent; */
@@ -48,7 +48,7 @@
   height: 64px;
 }
 .Battle_hero {
-  bottom: 0;
+  bottom: 24px;
   left: 0;
 }
 .Battle_hero img {
